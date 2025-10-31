@@ -1190,6 +1190,45 @@
                 window.open(whatsappURL, "_blank");
             });
         });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = document.querySelectorAll('.number');
+            const speed = 200; // lower = faster
+
+            const startCounting = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+
+                        const increment = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            // Trigger when the section becomes visible
+            const achievementsSection = document.querySelector('#achievements');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounting();
+                        observer.disconnect(); // run once
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(achievementsSection);
+        });
+
     </script>
 
 
