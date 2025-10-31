@@ -1,0 +1,266 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Exo', sans-serif;
+    line-height: 1.6;
+    color: #1E1E1E;
+    background: #FFFFFF;
+}
+h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00AEEF;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #39FF14;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #FF7A00;
+    box-shadow: 0 0 10px #39FF14;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(to right, #001F3F, #00AEEF);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+    height: 80px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+#nav ul {
+    list-style: none;
+    display: flex;
+}
+#nav li {
+    margin: 0 15px;
+}
+#nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+#nav a:hover, #nav .cta {
+    color: #39FF14;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #FFFFFF;
+    margin: 3px 0;
+}
+
+/* Hero */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #1E1E1E, #00AEEF);
+    color: #FFFFFF;
+    padding-top: 80px;
+}
+.hero-content {
+    flex: 1;
+    padding: 20px;
+}
+.hero-content h1 {
+    font-size: 48px;
+}
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+.hero-image img {
+    max-width: 100%;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* About */
+#about {
+    background: #FFFFFF;
+    padding: 50px 0;
+}
+#about .container {
+    display: flex;
+    align-items: center;
+}
+#about .text {
+    flex: 1;
+}
+#about .image {
+    flex: 1;
+    text-align: center;
+}
+
+/* Programs */
+#programs {
+    background: #F0F0F0;
+    padding: 50px 0;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px #00AEEF;
+}
+
+/* Gallery */
+#gallery {
+    background: #1E1E1E;
+    color: #FFFFFF;
+    padding: 50px 0;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Achievements */
+#achievements {
+    background: linear-gradient(to right, #00AEEF, #39FF14);
+    color: #FFFFFF;
+    padding: 50px 0;
+    text-align: center;
+}
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.stat .number {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* Testimonials */
+#testimonials {
+    background: #FFFFFF;
+    padding: 50px 0;
+    text-align: center;
+}
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+.slide {
+    display: none;
+}
+.slide.active {
+    display: block;
+}
+
+/* Contact */
+#contact {
+    background: linear-gradient(to right, #39FF14, #FF7A00);
+    color: #FFFFFF;
+    padding: 50px 0;
+}
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+#contact-form input, #contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.social {
+    margin-top: 20px;
+}
+.social a {
+    color: #FFFFFF;
+    margin: 0 10px;
+}
+
+/* Footer */
+footer {
+    background: #1E1E1E;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #header {
+        height: 60px;
+    }
+    #nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1E1E1E;
+        flex-direction: column;
+    }
+    #nav.active {
+        display: flex;
+    }
+    #nav ul {
+        flex-direction: column;
+    }
+    #nav li {
+        margin: 10px 0;
+    }
+    .hamburger {
+        display: flex;
+    }
+    #hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    #about .container {
+        flex-direction: column;
+    }
+    .stats {
+        flex-direction: column;
+    }
+}
